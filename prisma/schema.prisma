@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  name          String
+  nameAr        String?  // Arabic name
+  description   String
+  price         Float
+  discountPrice Float?
+  category      String
+  subcategory   String?
+  sizes         String[] // ['S', 'M', 'L', 'XL']
+  colors        String[] // ['Black', 'Navy', 'Brown']
+  images        String[] // Cloudinary URLs
+  featured      Boolean  @default(false)
+  inStock       Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model HeroContent {
+  id          String   @id @default(cuid())
+  title       String
+  titleAr     String?
+  subtitle    String
+  ctaText     String
+  bgImage     String
+  isActive    Boolean  @default(true)
+  order       Int
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  name        String
+  review      String
+  rating      Int
+  image       String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model Store {
+  id          String   @id @default(cuid())
+  name        String
+  address     String
+  phone       String
+  hours       String
+  mapUrl      String
+  image       String?
+  isActive    Boolean  @default(true)
+}
+
+model SiteSettings {
+  id                String   @id @default(cuid())
+  brandStory        String
+  brandStoryAr      String?
+  craftmanship      String
+  instagram         String?
+  facebook          String?
+  whatsapp          String
+  email            String
+  sslcommerzStore   String
+  sslcommerzKey     String
+}

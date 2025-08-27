@@ -1,0 +1,272 @@
+/* Animations for Farihas Abaya Brand */
+
+/* Golden Shimmer Effect */
+@keyframes shimmer {
+  0% { 
+    background-position: -200% 0;
+  }
+  100% { 
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold) 0%,
+    #F4D03F 25%,
+    var(--color-gold) 50%,
+    #F4D03F 75%,
+    var(--color-gold) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Fabric Flow Animation */
+@keyframes fabricFlow {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-15px) rotate(2deg);
+    opacity: 1;
+  }
+}
+
+.fabric-flow {
+  animation: fabricFlow 4s ease-in-out infinite;
+}
+
+/* Particle Float Animation */
+@keyframes particleFloat {
+  0% { 
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  33% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 1;
+  }
+  66% {
+    transform: translateY(-10px) scale(0.9);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+}
+
+.particle-float {
+  animation: particleFloat 6s ease-in-out infinite;
+}
+
+/* Text Reveal Animation */
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-reveal {
+  animation: textReveal 1s ease-out forwards;
+}
+
+/* Number Counter Animation */
+@keyframes numberCounter {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.number-counter {
+  animation: numberCounter 1.5s ease-out forwards;
+}
+
+/* Magnetic Hover Effect */
+@keyframes magneticPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 16px rgba(212, 175, 55, 0);
+  }
+}
+
+.magnetic-hover:hover {
+  animation: magneticPulse 0.6s ease-out;
+}
+
+/* Ripple Effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.6);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Gradient Transitions */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-shift {
+  background: linear-gradient(-45deg, var(--color-sand), var(--color-gold), var(--color-midnight), var(--color-burgundy));
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0);
+  }
+  50% { 
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+/* Slide In Animation */
+@keyframes slideIn {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-30px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 1s ease-out forwards;
+}
+
+/* AOS overrides for Arabian theme */
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos][data-aos][data-aos-duration="400"] {
+  transition-duration: 800ms;
+}
+
+[data-aos][data-aos][data-aos-easing="ease"] {
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+[data-aos="fade-up"] {
+  transform: translate3d(0, 40px, 0);
+}
+
+[data-aos="fade-up"].aos-animate {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+[data-aos="slide-right"] {
+  transform: translate3d(-100px, 0, 0);
+}
+
+[data-aos="slide-right"].aos-animate {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+[data-aos="zoom-in"] {
+  transform: scale(0.8);
+}
+
+[data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
