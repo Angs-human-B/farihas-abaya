@@ -26,11 +26,11 @@ const Navigation = () => {
   }, []);
 
   const navigationLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Collections", href: "#collections" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
-  ];
+    { name: "Home", href: "home" },
+    { name: "Collection", href: "collection" },
+    { name: "About", href: "about" },
+    { name: "Contact", href: "contact" },
+  ]
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
